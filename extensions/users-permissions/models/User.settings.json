@@ -1,0 +1,135 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "users-permissions_user",
+  "info": {
+    "name": "user",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "username": {
+      "type": "string",
+      "minLength": 3,
+      "unique": true,
+      "configurable": false,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "minLength": 6,
+      "configurable": false,
+      "required": true
+    },
+    "provider": {
+      "type": "string",
+      "configurable": false
+    },
+    "password": {
+      "type": "password",
+      "minLength": 6,
+      "configurable": false,
+      "private": true
+    },
+    "resetPasswordToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true
+    },
+    "confirmed": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "blocked": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "role": {
+      "model": "role",
+      "via": "users",
+      "plugin": "users-permissions",
+      "configurable": false
+    },
+    "company": {
+      "model": "company",
+      "via": "users"
+    },
+    "featureds": {
+      "collection": "featured",
+      "via": "user"
+    },
+    "industry": {
+      "type": "enumeration",
+      "enum": [
+        "MANUFACTURE",
+        "ENERGY",
+        "EPCANDINFRASTRUCTURE",
+        "MINING",
+        "EDUCATIONANDRESEARCH",
+        "BANKINGANDFINANCE",
+        "DIGITALINDUSTRY",
+        "AVIATION",
+        "EVENT",
+        "ENTREPRENEUR",
+        "TRANSPORTATIONANDLOGISTIC",
+        "CIVILSERVANT",
+        "AGRICULTUREANDFISHERY",
+        "ARTSANDENTERTAINMENT",
+        "NOT_AVAILABLE"
+      ],
+      "default": "NOT_AVAILABLE"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "MALE",
+        "FEMALE"
+      ]
+    },
+    "education": {
+      "type": "enumeration",
+      "enum": [
+        "S1",
+        "S2",
+        "S3"
+      ]
+    },
+    "education_info": {
+      "type": "text"
+    },
+    "position": {
+      "type": "enumeration",
+      "enum": [
+        "KETUA",
+        "SEKRETARIS",
+        "BENDAHARA",
+        "KEWIRAUSAHAAN",
+        "ALUMNI",
+        "ALMAMATER",
+        "HUMAS",
+        "PENGMAS",
+        "NOT_AVAILABLE"
+      ],
+      "default": "NOT_AVAILABLE"
+    },
+    "class": {
+      "type": "integer"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "photo": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

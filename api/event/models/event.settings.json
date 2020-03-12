@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "events",
+  "info": {
+    "name": "event"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "start": {
+      "type": "time"
+    },
+    "end": {
+      "type": "time"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "speakers": {
+      "collection": "speaker",
+      "via": "event"
+    },
+    "fee": {
+      "type": "biginteger",
+      "default": "0"
+    },
+    "package": {
+      "type": "text"
+    },
+    "thumbnail": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

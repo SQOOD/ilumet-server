@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "companies",
+  "info": {
+    "name": "company"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "about": {
+      "type": "text"
+    },
+    "users": {
+      "via": "company",
+      "plugin": "users-permissions",
+      "collection": "user"
+    },
+    "industry": {
+      "type": "enumeration",
+      "enum": [
+        "CIVILCONTRACTOR",
+        "FABRICATIONOILANDGAS",
+        "FABRICATIONAUTOMOTIVE",
+        "EPCCONTRACTOR",
+        "HEAVYEQUIPMENT",
+        "TRANSPORTATIONANDLOGISTIC",
+        "TRADING",
+        "FINANCEANDACCOUNTING",
+        "OILANDGASSERVICE",
+        "ADVERTISING",
+        "DESIGNANDFILM",
+        "INFORMATIONTECHNOLOGY",
+        "AGRICULTUREANDFISHERY",
+        "EVENTORGANIZERORWEDDINGORGANIZER",
+        "MERCHANDISING",
+        "WAREHOUSE",
+        "FASHIONANDGARMENT",
+        "BEAUTY",
+        "FOODANDBEVERAGE",
+        "NOT_AVAILABLE"
+      ],
+      "default": "NOT_AVAILABLE"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "url1": {
+      "type": "string"
+    },
+    "url2": {
+      "type": "string"
+    },
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "thumbnail": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

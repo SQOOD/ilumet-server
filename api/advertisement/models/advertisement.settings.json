@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "advertisements",
+  "info": {
+    "name": "advertisement"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "banner": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "position": {
+      "type": "enumeration",
+      "enum": [
+        "PREMIUM",
+        "DASHBOARD",
+        "BUSINESS"
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "speakers",
+  "info": {
+    "name": "speaker"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "event": {
+      "via": "speakers",
+      "model": "event"
+    }
+  }
+}

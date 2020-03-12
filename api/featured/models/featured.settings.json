@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "featureds",
+  "info": {
+    "name": "features"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string"
+    },
+    "user": {
+      "via": "featureds",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}
